@@ -15,7 +15,7 @@ const tagSchema = new Schema({
 
 const linkSchema = new Schema({
     hash:{type:String, required: true},
-    userId:{type: mongoose.Types.ObjectId, ref:'User', required:true}
+    userId:{type:mongoose.Types.ObjectId, ref:'User', required:true}
 })
 
 const contentType = ['image', ]
@@ -26,6 +26,8 @@ const contentSchema = new Schema({
     tags: [{type: mongoose.Types.ObjectId, ref:'Tag'}],
     userId:{type:mongoose.Types.ObjectId, ref:'User', required:true}
 })
+
+
 
 // We create Usermodel to use these strutures to stroe the data
 // The first argument is that where i want to put the data in database 

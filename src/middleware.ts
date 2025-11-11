@@ -16,7 +16,7 @@ export const middlewareAuth = (req: Request, res:Response,next:NextFunction ) =>
 
     if(decode){
         // @ts-ignore
-        req.Userid = decode.id
+        req.userId = decode.id
         next()
     }
     else{
