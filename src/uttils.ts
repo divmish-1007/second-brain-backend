@@ -1,6 +1,6 @@
 
 export function random(len:number){
-    let options = "qwejsgondkjscddhfbjfhbshfb121312424823u20u@@#Y@*($Y#(Y$)"
+    let options = "qwejsgondkjscddhfbjfhbshfb121312424823u20"
     let length = options.length
 
     let ans = ""
