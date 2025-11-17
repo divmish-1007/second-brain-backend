@@ -18,7 +18,7 @@ const linkSchema = new Schema({
     userId:{type:mongoose.Types.ObjectId, ref:'User', required:true}
 })
 
-const contentType = ['image', ]
+const contentType = ['youtube', 'twitter']
 const contentSchema = new Schema({
     link:{type:String, required: true},
     type:{type: String, enum:contentType},

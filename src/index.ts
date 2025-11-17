@@ -6,10 +6,11 @@ import { TagModel, UserModel, LinkModel, ContentModel } from "./db.js"
 import { middlewareAuth } from "./middleware.js"
 import { JWT_SECRET } from "./config.js"
 import { random } from "./uttils.js"
-
+import cors from "cors"
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 interface UserPayload {
     id: string;
@@ -67,11 +68,12 @@ app.post("/api/v1/signin", async (req, res) => {
 
 app.post("/api/v1/content", middlewareAuth, async (req, res) => {
 
-    const { link, title } = req.body
+    const { link, title, type } = req.body
 
     const newContent = await ContentModel.create({
         link: link,
         title: title,
+        type:type,
         tags: [],
         // @ts-ignore
         userId: req.userId
@@ -197,4 +199,11 @@ app.get("/api/v1/brain/:shareLink", async (req, res) => {
     })
 })
 
+// app.get("/api/v1/test", (req, res) => {
+//     res.json({
+//         message:"Your server is running perfectly"
+//     })
+// })
+
 app.listen(3000)
+console.log("listening on port:3000")
